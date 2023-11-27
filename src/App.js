@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+
+import Buttons from './Buttons.js'
+
+import './index.css';
+import {useState} from "react"
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+  const [activeBtn, setActiveBtn] = useState("all")
+ 
+
+ return(
+  <div>
+  
+    <div className="buttons">
+    <Buttons title={"All"} active={activeBtn === "all"} onClick={()=> setActiveBtn("all") }/>
+    <Buttons title={"Done"} active={activeBtn === "done"} onClick={()=> setActiveBtn("done") }/>
+    <Buttons title={"inprogress"} active={activeBtn === "inprogress"} onClick={()=> setActiveBtn("inprogress") }/>
+    <Buttons title={"todo"} active={activeBtn === "todo"} onClick={()=> setActiveBtn("todo") }/>
     </div>
-  );
+   
+
+  
+  </div>
+ )
+
 }
 
 export default App;
